@@ -1,8 +1,8 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-
 //display current day in id currentDay
+$(document).ready(function() {
+  var currentDay = dayjs().format("dddd, MMMM D");
+  $("#currentDay").text(currentDay);
+});
 
 //function to update the time blocks
 
