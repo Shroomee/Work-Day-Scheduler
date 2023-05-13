@@ -4,8 +4,26 @@ $(document).ready(function() {
   $("#currentDay").text(currentDay);
 });
 
-//function to update the time blocks
+//update the time blocks
+function updateBlocks() {
+  var hour = dayjs().hour();
 
+  $('time-block').each(function() {
+    var hourBlock = parseInt($(this).attr('id'));
+
+    $(this).removeClass('past present future');
+
+    if (hourBlock < hour) {
+      $(this).addClass('past')
+    } else if (hourBlock === hour) {
+      $(this).addClass('present')
+    } else {
+      $(this).addClass('future')
+    }
+  });
+}
+
+updateBlocks();
 //event handler for save button with local storage
 
 //load local storage onto time blocks
