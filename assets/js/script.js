@@ -1,6 +1,7 @@
 //display current day in id currentDay
+var currentDay = dayjs().format("MMM D, YYYY");
+
 $(document).ready(function() {
-  var currentDay = dayjs().format("dddd, MMMM D");
   $("#currentDay").text(currentDay);
 });
 
@@ -25,6 +26,15 @@ function updateBlocks() {
 
 updateBlocks();
 //event handler for save button with local storage
+$('.saveBtn').on('click', function() {
+  var text = $(this).siblings('.description').val();
+  var time = $(this).parent().attr('id');
+
+  localStorage.setItem(text, time)
+  console.log('time', time)
+  console.log('text', text)
+});
+
 
 //load local storage onto time blocks
 
